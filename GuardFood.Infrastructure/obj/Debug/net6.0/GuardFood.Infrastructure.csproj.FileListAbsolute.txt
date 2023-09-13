@@ -1,0 +1,17 @@
+C:\Projetos\GuardFood\GuardFood.Infrastructure\bin\Debug\net6.0\GuardFood.Infrastructure.deps.json
+C:\Projetos\GuardFood\GuardFood.Infrastructure\bin\Debug\net6.0\GuardFood.Infrastructure.runtimeconfig.json
+C:\Projetos\GuardFood\GuardFood.Infrastructure\bin\Debug\net6.0\GuardFood.Infrastructure.dll
+C:\Projetos\GuardFood\GuardFood.Infrastructure\bin\Debug\net6.0\GuardFood.Infrastructure.pdb
+C:\Projetos\GuardFood\GuardFood.Infrastructure\bin\Debug\net6.0\GuardFood.Core.dll
+C:\Projetos\GuardFood\GuardFood.Infrastructure\bin\Debug\net6.0\GuardFood.Core.pdb
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.csproj.AssemblyReference.cache
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.AssemblyInfoInputs.cache
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.AssemblyInfo.cs
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.csproj.CopyComplete
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.dll
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\refint\GuardFood.Infrastructure.dll
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.pdb
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\GuardFood.Infrastructure.genruntimeconfig.cache
+C:\Projetos\GuardFood\GuardFood.Infrastructure\obj\Debug\net6.0\ref\GuardFood.Infrastructure.dll
