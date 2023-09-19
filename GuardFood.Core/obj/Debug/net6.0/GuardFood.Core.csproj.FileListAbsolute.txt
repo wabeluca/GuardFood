@@ -10,3 +10,15 @@ C:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\refint\GuardFood.Core.dll
 C:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.pdb
 C:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\ref\GuardFood.Core.dll
 C:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.csproj.AssemblyReference.cache
+D:\Projetos\GuardFood\GuardFood.Core\bin\Debug\net6.0\GuardFood.Core.deps.json
+D:\Projetos\GuardFood\GuardFood.Core\bin\Debug\net6.0\GuardFood.Core.dll
+D:\Projetos\GuardFood\GuardFood.Core\bin\Debug\net6.0\GuardFood.Core.pdb
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.csproj.AssemblyReference.cache
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.AssemblyInfoInputs.cache
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.AssemblyInfo.cs
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.csproj.CoreCompileInputs.cache
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.dll
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\refint\GuardFood.Core.dll
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.pdb
+D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\ref\GuardFood.Core.dll

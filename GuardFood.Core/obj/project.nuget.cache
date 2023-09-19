@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ji6go1oAMKedZjEjd5ZDRcRqCn+2b6jg65pLhGum+GwHRNwOnP0pQBrWYX4C4wvSLm48EscaWup+S3iHcZPdIA==",
+  "dgSpecHash": "AlfUnvPub3ZykUaavtoknZsFm+mGgjvDvQu8hUITqrE90q+0rVChWkbi7s32scxl8SDE5u/fI0T9rl3oyEcN5Q==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj",
+  "projectFilePath": "D:\\Projetos\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wesle\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\wesle\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

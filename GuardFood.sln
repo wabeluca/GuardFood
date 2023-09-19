@@ -5,9 +5,13 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuardFood.Core", "GuardFood.Core\GuardFood.Core.csproj", "{A789403C-569E-4E09-9F77-AB87E67AFBA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuardFood.Infrastructure", "GuardFood.Infrastructure\GuardFood.Infrastructure.csproj", "{25EC0286-CADC-4AEC-8199-DABC9A7FC628}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuardFood.Infrastructure", "GuardFood.Infrastructure\GuardFood.Infrastructure.csproj", "{25EC0286-CADC-4AEC-8199-DABC9A7FC628}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuardFood.Application", "GuardFood.Application\GuardFood.Application.csproj", "{F2F59A21-7D5F-4A59-920D-11DE5F7273A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuardFood.Application", "GuardFood.Application\GuardFood.Application.csproj", "{F2F59A21-7D5F-4A59-920D-11DE5F7273A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01- Core", "01- Core", "{DC8E2F78-E6EB-4CF6-BB08-89D29A61A08E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03- Application", "03- Application", "{3BDAC9EE-2409-4071-AC82-03206F6BC2C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +34,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A789403C-569E-4E09-9F77-AB87E67AFBA4} = {DC8E2F78-E6EB-4CF6-BB08-89D29A61A08E}
+		{25EC0286-CADC-4AEC-8199-DABC9A7FC628} = {DC8E2F78-E6EB-4CF6-BB08-89D29A61A08E}
+		{F2F59A21-7D5F-4A59-920D-11DE5F7273A4} = {3BDAC9EE-2409-4071-AC82-03206F6BC2C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7CADE56A-0F77-4DBA-9715-A012137A9BF1}
