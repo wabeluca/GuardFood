@@ -25,4 +25,9 @@
     <ProjectReference Include="..\GuardFood.Core\GuardFood.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Interfaces\" />
+    <Folder Include="Data\Repositorys\" />
+  </ItemGroup>
+
 </Project>

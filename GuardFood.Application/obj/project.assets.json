@@ -5951,11 +5951,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\GuardFood\\GuardFood.Application\\GuardFood.Application.csproj",
+      "projectUniqueName": "D:\\Projetos\\GuardFood\\GuardFood.Application\\GuardFood.Application.csproj",
       "projectName": "GuardFood.Application",
-      "projectPath": "C:\\Projetos\\GuardFood\\GuardFood.Application\\GuardFood.Application.csproj",
+      "projectPath": "D:\\Projetos\\GuardFood\\GuardFood.Application\\GuardFood.Application.csproj",
       "packagesPath": "C:\\Users\\wesle\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\GuardFood\\GuardFood.Application\\obj\\",
+      "outputPath": "D:\\Projetos\\GuardFood\\GuardFood.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wesle\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5966,17 +5966,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.devexpress.com/u8vi7xJw7bbYrWXF5KoT8aGb1ldWgvz1JPZUaoo2dhffJBMjHU/api": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Projetos\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj": {
-              "projectPath": "C:\\Projetos\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj"
+            "D:\\Projetos\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj": {
+              "projectPath": "D:\\Projetos\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj"
             },
-            "C:\\Projetos\\GuardFood\\GuardFood.Infrastructure\\GuardFood.Infrastructure.csproj": {
-              "projectPath": "C:\\Projetos\\GuardFood\\GuardFood.Infrastructure\\GuardFood.Infrastructure.csproj"
+            "D:\\Projetos\\GuardFood\\GuardFood.Infrastructure\\GuardFood.Infrastructure.csproj": {
+              "projectPath": "D:\\Projetos\\GuardFood\\GuardFood.Infrastructure\\GuardFood.Infrastructure.csproj"
             }
           }
         }

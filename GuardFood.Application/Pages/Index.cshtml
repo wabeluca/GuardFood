@@ -4,7 +4,46 @@
     ViewData["Title"] = "Home page";
 }
 
+<style>
+
+    .card-restaurante{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #d3d3d3;
+        margin: 1em;
+        padding: 1em;
+        justify-content: center;
+    }
+
+    .titulo-restaurante{
+        font-size: larger;
+    }
+
+</style>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1>Selecione seu Restaurante
+    </h1>
+</div>
+
+<div class="restaurantes">
+    <div class="restaurantes-container" style="display: flex; justify-content: center;">
+        <div class="card-restaurante">
+            <div>
+                <img style="width:15rem" src="~/images/Mc Donalds/McDonalds Logo.png" />
+            </div>
+            <div class="titulo-restaurante">
+                McDonalds
+            </div>
+        </div>
+        <div class="card-restaurante">
+            <div>
+                <img style="width:15rem" src="~/images/Outback/Logo Outback.png" />
+            </div>
+            <div class="titulo-restaurante">
+                OutBack
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KBaCPJhfRFJYDYFneovLd8Y4pM52FGpUpHfJojJaLyrsFm/PLvnUGjWttGf8RYDEL9EnB5ovbURyMgqj1fzmPg==",
+  "dgSpecHash": "xQn1I2OWmjD9aWKloK97W0m+qwT1lA0vOOTmINSIniFz62LQQ9+2/gEJNKZOs8SeDKn6t8pagIiVR2xM6jwmKg==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\GuardFood\\GuardFood.Infrastructure\\GuardFood.Infrastructure.csproj",
+  "projectFilePath": "D:\\Projetos\\GuardFood\\GuardFood.Infrastructure\\GuardFood.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wesle\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\wesle\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
