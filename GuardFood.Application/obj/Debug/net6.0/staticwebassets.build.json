@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yyCjdtUpxC2AHqUmXc8xEZFnMZZju2zM8JqPJDuONzE=",
+  "Hash": "PAzGmFU5O6mVJMl8mMqEI3eA+EqhwCi0opxvLfJv7Ps=",
   "Source": "GuardFood.Application",
   "BasePath": "_content/GuardFood.Application",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Projetos\\GuardFood\\GuardFood.Application\\wwwroot\\images\\Mc Donalds\\McDonalds Logo.png",
+      "SourceId": "GuardFood.Application",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projetos\\GuardFood\\GuardFood.Application\\wwwroot\\",
+      "BasePath": "_content/GuardFood.Application",
+      "RelativePath": "images/Mc Donalds/McDonalds Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Mc Donalds\\McDonalds Logo.png"
+    },
+    {
+      "Identity": "D:\\Projetos\\GuardFood\\GuardFood.Application\\wwwroot\\images\\Outback\\Logo Outback.png",
+      "SourceId": "GuardFood.Application",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projetos\\GuardFood\\GuardFood.Application\\wwwroot\\",
+      "BasePath": "_content/GuardFood.Application",
+      "RelativePath": "images/Outback/Logo Outback.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Outback\\Logo Outback.png"
     },
     {
       "Identity": "D:\\Projetos\\GuardFood\\GuardFood.Application\\wwwroot\\js\\site.js",

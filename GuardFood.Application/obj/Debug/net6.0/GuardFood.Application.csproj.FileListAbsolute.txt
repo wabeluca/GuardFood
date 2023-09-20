@@ -151,6 +151,7 @@ D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\staticwebassets\msb
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\staticwebassets.pack.json
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\staticwebassets.build.json
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\staticwebassets.development.json
+D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\scopedcss\bundle\GuardFood.Application.styles.css
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\scopedcss\projectbundle\GuardFood.Application.bundle.scp.css
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\GuardFood.Application.csproj.CopyComplete
@@ -159,4 +160,3 @@ D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\refint\GuardFood.Ap
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\GuardFood.Application.pdb
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\GuardFood.Application.genruntimeconfig.cache
 D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\ref\GuardFood.Application.dll
-D:\Projetos\GuardFood\GuardFood.Application\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css

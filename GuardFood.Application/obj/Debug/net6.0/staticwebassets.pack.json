@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Projetos\\GuardFood\\GuardFood.Application\\wwwroot\\images\\Mc Donalds\\McDonalds Logo.png",
+      "PackagePath": "staticwebassets\\images\\Mc Donalds\\McDonalds Logo.png"
+    },
+    {
+      "Id": "D:\\Projetos\\GuardFood\\GuardFood.Application\\wwwroot\\images\\Outback\\Logo Outback.png",
+      "PackagePath": "staticwebassets\\images\\Outback\\Logo Outback.png"
+    },
+    {
       "Id": "D:\\Projetos\\GuardFood\\GuardFood.Application\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
