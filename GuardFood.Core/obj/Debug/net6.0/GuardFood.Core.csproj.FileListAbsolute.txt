@@ -22,3 +22,15 @@ D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.dll
 D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\refint\GuardFood.Core.dll
 D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.pdb
 D:\Projetos\GuardFood\GuardFood.Core\obj\Debug\net6.0\ref\GuardFood.Core.dll
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\bin\Debug\net6.0\GuardFood.Core.deps.json
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\bin\Debug\net6.0\GuardFood.Core.dll
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\bin\Debug\net6.0\GuardFood.Core.pdb
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.csproj.AssemblyReference.cache
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.AssemblyInfoInputs.cache
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.AssemblyInfo.cs
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.csproj.CoreCompileInputs.cache
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.dll
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\refint\GuardFood.Core.dll
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\GuardFood.Core.pdb
+C:\Users\leona\Documents\GitKraken\GuardFood\GuardFood.Core\obj\Debug\net6.0\ref\GuardFood.Core.dll

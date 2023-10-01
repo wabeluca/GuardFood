@@ -12,8 +12,5 @@ namespace GuardFood.Core.Entities
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public double Valor { get; set; }
-        [ForeignKey("Restaurantes")]
-        public Guid RestauranteId { get; set; }
-        public virtual Restaurante Restaurante { get; set; }
     }
 }
