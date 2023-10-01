@@ -10,5 +10,8 @@ namespace GuardFood.Core.Entities
     {
         public string Nome { get; set; }
         public string Descricao { get; set; }
+        public string Logo { get; set; }
+        public string CorPrimaria { get; set; }
+        public string CorSecundaria { get; set; }
     }
 }

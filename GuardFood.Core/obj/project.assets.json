@@ -4119,19 +4119,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wesle\\.nuget\\packages\\": {}
+    "C:\\Users\\leona\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj",
+      "projectUniqueName": "C:\\Users\\leona\\Documents\\GitKraken\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj",
       "projectName": "GuardFood.Core",
-      "projectPath": "D:\\Projetos\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj",
-      "packagesPath": "C:\\Users\\wesle\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\GuardFood\\GuardFood.Core\\obj\\",
+      "projectPath": "C:\\Users\\leona\\Documents\\GitKraken\\GuardFood\\GuardFood.Core\\GuardFood.Core.csproj",
+      "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\leona\\Documents\\GitKraken\\GuardFood\\GuardFood.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\wesle\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4139,8 +4139,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.devexpress.com/u8vi7xJw7bbYrWXF5KoT8aGb1ldWgvz1JPZUaoo2dhffJBMjHU/api": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {

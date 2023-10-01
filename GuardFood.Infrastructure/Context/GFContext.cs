@@ -17,7 +17,7 @@ namespace GuardFood.Infrastructure.Context
             
         }
 
-        public DbSet<Restaurantes> Restaurantes { get; set; }
+        public DbSet<Restaurante> Restaurantes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
