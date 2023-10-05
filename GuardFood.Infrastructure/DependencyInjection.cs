@@ -1,5 +1,6 @@
 ﻿using GuardFood.Infrastructure.Context;
 using GuardFood.Infrastructure.Data.Interfaces;
+using GuardFood.Infrastructure.Data.Repository;
 using GuardFood.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

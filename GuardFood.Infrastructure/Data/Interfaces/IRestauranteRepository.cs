@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GuardFood.Infrastructure.Data.Interfaces
 {
-    internal interface IRestauranteRepository : IRepository<Restaurante>
+    public interface IRestauranteRepository : IRepository<Restaurante>
     {
     }
 }
