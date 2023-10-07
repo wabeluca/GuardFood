@@ -21,7 +21,7 @@
             width: 100%;
             height: 100%;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1.25fr .5fr 2fr;
+            grid-template-rows: .75fr .5fr 2fr;
             grid-template-areas: 'header header header'
                                  'denuncias restaurantes usuarios'
                                  'grafico-1 grafico-2 grafico-3';
@@ -85,7 +85,15 @@
         <div class="col-10">
             <div class="d-grid gap-4 painel">
                 <div class="header bg-white p-3">
-                    <h2>Seja bem vindo, Wesley Beluca</h2>
+                    <div class="d-flex flex-column justify-content-end h-100 position-relative">
+                        <h2 style="font-size: 3em;">Seja bem vindo, <b class="text-bg-danger px-2">Wesley Beluca</b></h2>
+                        <p class="fs-3">A plataforma que protege quem mais precisa!</p>
+                        <div class="position-absolute d-flex top-0 end-0 fs-2">
+                            <input class="form-control form-text" placeholder="Pesquisar" style="width: 300px;" />
+                            <span class="mdi mdi-printer ms-3"></span>
+                            <span class="mdi mdi-exit-to-app ms-3"></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="restaurantes bg-white p-3">
                     <div class="ms-3 d-flex align-items-center h-100">
