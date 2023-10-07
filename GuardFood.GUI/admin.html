@@ -21,7 +21,7 @@
             width: 100%;
             height: 100%;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1.5fr 1fr 2fr;
+            grid-template-rows: 1.25fr .5fr 2fr;
             grid-template-areas: 'header header header'
                                  'denuncias restaurantes usuarios'
                                  'grafico-1 grafico-2 grafico-3';
@@ -83,18 +83,42 @@
             </div>
         </div>
         <div class="col-10">
-            <div class="d-grid gap-3 painel">
+            <div class="d-grid gap-4 painel">
                 <div class="header bg-white p-3">
                     <h2>Seja bem vindo, Wesley Beluca</h2>
                 </div>
                 <div class="restaurantes bg-white p-3">
-                    <p>200</p>
+                    <div class="ms-3 d-flex align-items-center h-100">
+                        <div style="width: 100px; height: 100px;" class="bg-danger rounded-circle d-flex justify-content-center align-items-center">
+                            <span class="mdi mdi-phone-alert text-white" style="font-size: 3em;"></span>
+                        </div>
+                        <div class="ms-3 d-flex flex-column">
+                            <h3 class="fw-bold">753 Chamados atendidos</h3>
+                            <p>14 chamados perdidos</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="denuncias bg-white p-3">
-                    <p>10</p>
+                    <div class="ms-3 d-flex align-items-center h-100">
+                        <div style="width: 100px; height: 100px;" class="bg-success rounded-circle d-flex justify-content-center align-items-center">
+                            <span class="mdi mdi-medication text-white" style="font-size: 3em;"></span>
+                        </div>
+                        <div class="ms-3 d-flex flex-column">
+                            <h3 class="fw-bold">600 Acompanhamentos realizados</h3>
+                            <p>153 não quiseram acompanhamento</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="usuarios bg-white p-3">
-                    <p>30</p>
+                    <div class="ms-3 d-flex align-items-center h-100">
+                        <div style="width: 100px; height: 100px;" class="bg-info rounded-circle d-flex justify-content-center align-items-center">
+                            <span class="mdi mdi-account-check text-white" style="font-size: 3em;"></span>
+                        </div>
+                        <div class="ms-3 d-flex flex-column">
+                            <h3 class="fw-bold">895 Usuários cadastrados</h3>
+                            <p>63 Usuários descadastrados</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="grafico-1 d-flex justify-content-center align-items-center bg-white p-3">
                     <canvas id="graph-1"></canvas>
@@ -102,7 +126,7 @@
                 <div class="grafico-2 d-flex justify-content-center align-items-center bg-white p-3">
                     <canvas id="graph-2"></canvas>
                 </div>
-                <div class="grafico-3 d-flex justify-content-center align-items-center bg-white p-3">
+                <div class="grafico-3 d-flex justify-content-center align-items-center bg-white p-5">
                     <canvas id="graph-3"></canvas>
                 </div>
             </div>
@@ -123,14 +147,21 @@
                     data: [100, 87, 92, 76, 65, 47, 39, 30, 18, 20, 25, 30],
                     fill: false,
                     borderColor: '#28a745',
-                    tension: 0.1
+                    tension: 0.5
                 },
                 {
                     label: 'Denúncias (2022)', // Rótulo do segundo conjunto de dados
                     data: [30, 42, 38, 52, 48, 61, 56, 60, 33, 76, 94, 104],
                     fill: false,
                     borderColor: '#007bff',
-                    tension: 0.1
+                    tension: 0.5
+                },
+                {
+                    label: 'Denúncias (2021)', // Rótulo do segundo conjunto de dados
+                    data: [30, 21, 18, 24, 29, 20, 19, 10, 25, 35, 40, 42],
+                    fill: false,
+                    borderColor: '#ffc107',
+                    tension: 0.5
                 }
             ]
         };
@@ -139,9 +170,76 @@
             data: data1,
         };
 
+        const labels2 = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        const data2 = {
+        labels: labels2,
+            datasets: [{
+                label: 'Usuários cadastrados (2023)',
+                data: [80, 63, 89, 70, 56, 47, 39, 30, 50, 45, 25, 30],
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                'rgb(255, 99, 132)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)',
+                'rgb(153, 102, 255)',
+                'rgb(201, 203, 207)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        const config2 = {
+            type: 'bar',
+            data: data2,
+            options: {
+                scales: {
+                y: {
+                    beginAtZero: true
+                }
+                }
+            },
+            };
+
+            const data3 = {
+                labels: [
+                    'Norte',
+                    'Nordeste',
+                    'Centro-Oeste',
+                    'Sudeste',
+                    'Sul'
+                ],
+                datasets: [{
+                    label: 'Usuários cadastrados na região',
+                    data: [76, 50, 90, 145, 98],
+                    backgroundColor: [
+                    '#dc3545',
+                    '#0d6efd',
+                    '#28a745',
+                    '#ffc107',
+                    '#17a2b8',
+                    ],
+                    hoverOffset: 4
+                }]
+            };
+
+        const config3 = {
+            type: 'doughnut',
+            data: data3,
+        };
+
         new Chart(document.getElementById('graph-1'), config1).resize();
-        new Chart(document.getElementById('graph-2'), config1).resize();
-        new Chart(document.getElementById('graph-3'), config1).resize();
+        new Chart(document.getElementById('graph-2'), config2).resize();
+        new Chart(document.getElementById('graph-3'), config3).resize();
         
     </script>
 </body>
