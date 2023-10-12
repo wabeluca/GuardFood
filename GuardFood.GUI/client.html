@@ -30,10 +30,10 @@
     <div class="row h-100">
         <div class="col-12 p-3">
             <div class="bg-white h-100 p-3 d-flex flex-column">
+                <div id="conteudo" class="mt-5">
                 <div class="d-flex justify-content-between">
                     <span class="text-danger px-2 w-auto fs-2 fw-bold">Restaurantes</span>
                 </div>
-                <div id="conteudo" class="mt-5">
                     <div class="categoria d-flex align-items-center text-secondary justify-content-around" style="font-size: 5em;">
                         <div class="item d-flex flex-column align-items-center justify-content-center">
                             <span class="mdi mdi-food-hot-dog"></span>
@@ -67,7 +67,17 @@
                     <ul id="minhaLista" class="list-unstyled">
                     </ul>
                 </div>
-                <div id="detalhe">
+                <div id="detalhe" style="display: none;">
+                    <div class="d-flex bg-danger px-5 py-3">
+                        <div class="me-3">
+                            <img style="max-width: 75px;" src="https://th.bing.com/th/id/R.8e1a9c8e6188e982ee58c739b787184d?rik=vnr%2fUyF8mLhlxQ&riu=http%3a%2f%2flogos-download.com%2fwp-content%2fuploads%2f2016%2f03%2fMcDonalds_logo_red_America_USA.png&ehk=oAtC5j7IBGR%2b4qEZvqKVsgRMZ%2f14EDCQGNFzHmKzLaA%3d&risl=&pid=ImgRaw&r=0">
+                        </div>
+                        <div>
+                            <h1>Nome</h1>
+                            <p>Descricao</p>
+                        </div>
+                    </div>
+                    <h2 class="my-3">Cardápio</h2>
                     <ul id="lista-produtos">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex">
@@ -161,6 +171,7 @@ function abrirDetalhe(id) {
     .then(response => {
         console.log(response.data);
         document.getElementById("conteudo").style.display = "none";
+        document.getElementById("detalhe").style.display = "";
     })
     .catch(error => {
         console.error("Erro ao enviar os dados para a API:", error);

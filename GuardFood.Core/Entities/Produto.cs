@@ -12,5 +12,14 @@ namespace GuardFood.Core.Entities
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public double Valor { get; set; }
+        
+        [NotMapped]
+        public string ValorMonetario
+        {
+            get
+            {
+                return Valor.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+            }
+        }
     }
 }
