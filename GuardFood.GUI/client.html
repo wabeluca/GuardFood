@@ -67,35 +67,54 @@
                     <ul id="minhaLista" class="list-unstyled">
                     </ul>
                 </div>
-                <div id="detalhe" style="display: none;">
-                    <div class="d-flex bg-danger px-5 py-3">
-                        <div class="me-3">
-                            <img style="max-width: 75px;" src="https://th.bing.com/th/id/R.8e1a9c8e6188e982ee58c739b787184d?rik=vnr%2fUyF8mLhlxQ&riu=http%3a%2f%2flogos-download.com%2fwp-content%2fuploads%2f2016%2f03%2fMcDonalds_logo_red_America_USA.png&ehk=oAtC5j7IBGR%2b4qEZvqKVsgRMZ%2f14EDCQGNFzHmKzLaA%3d&risl=&pid=ImgRaw&r=0">
-                        </div>
-                        <div>
-                            <h1>Nome</h1>
-                            <p>Descricao</p>
-                        </div>
+                <div id="detalhe" class="container" style="display: none;">
+                    <div id="restaurante-info">
+
                     </div>
-                    <h2 class="my-3">Cardápio</h2>
-                    <ul id="lista-produtos">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex">
-                                <div class="me-3">
-                                    <span class="mdi mdi-food fs-1"></span>
-                                </div>
-                                <div>
-                                    <p class="fw-bold">Produto 1</p>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatum explicabo officiis in placeat numquam inventore eaque quos iure recusandae tempora eum, quo nesciunt, tenetur voluptatibus a exercitationem reiciendis dolore.</p>
-                                </div>
-                            </div>
-                            <div>
-                                <span class="mdi mdi-cart-plus fs-3"></span>
-                            </div>
-                        </div>
+                    <ul id="lista-produtos" class="list-unstyled">
                     </ul>
+                    <div class="w-100 d-flex justify-content-center">
+                        <button type="button" class="btn px-5 py-3 fw-semibold" data-bs-toggle="modal" data-bs-target="#meuModal">
+                            Realizar pedido
+                        </button>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="meuModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-success p-5" style="display: none;">
+                    <div class="d-flex flex-column justify-content-center align-items-center text-success fs-1">
+                        <span class="mdi mdi-check-circle text-success"></span>
+                        <h6>Pedido realizado com sucesso!</h6>
+                        <button onclick="window.location.reload()" class="btn btn-success mt-5">OK</button>
+                    </div>
+                </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="meuModalLabel">Finalizar pedido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-5">
+                            <p>Finalize agora seu pedido</p>
+                            <p><span class="mdi mdi-clock-fast me-1"></span>tempo de espera estimado é de <b>34-45 min</b></p>
+                        </div>
+                        <label class="form-label" for="denuncia">Observações do pedido</label>
+                        <textarea placeholder="Relate oque está acontecendo sua privacidade será respeitada!" class="form-control" name="denuncia" style="height: 200px;"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" onclick="enviarDenuncia()">Enviar</button>
+                </div>
+
+            </div>
+            
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -106,6 +125,8 @@
 
 <script>
 const minhaLista = document.getElementById("minhaLista");
+const detalhe = document.getElementById("detalhe");
+const restauranteInfo = document.getElementById("restaurante-info");
 
 axios.get("https://localhost:7016/restaurante/todos")
     .then(response => {
@@ -164,19 +185,144 @@ div.appendChild(divDireita);
 li.appendChild(div);
 lista.appendChild(li);
 }
-
-
 function abrirDetalhe(id) {
     axios.get("https://localhost:7016/restaurante/detalhe/" + id)
     .then(response => {
-        console.log(response.data);
         document.getElementById("conteudo").style.display = "none";
         document.getElementById("detalhe").style.display = "";
+        fillDetail(response.data);
     })
     .catch(error => {
         console.error("Erro ao enviar os dados para a API:", error);
     });
 }
+
+
+function headerDetail(restaurante) {
+var divElement = document.createElement('div');
+var botao = document.getElementById("")
+divElement.classList.add('d-flex', 'py-3');
+
+var imageDiv = document.createElement('div');
+imageDiv.classList.add('me-3');
+
+var image = document.createElement('img');
+image.style.maxWidth = '75px';
+image.src = restaurante.logo;
+
+imageDiv.appendChild(image);
+
+var textDiv = document.createElement('div');
+
+var h1Element = document.createElement('h1');
+h1Element.textContent = restaurante.nome;
+
+var pElement = document.createElement('p');
+var spanElement = document.createElement('span');
+spanElement.textContent = restaurante.categoria;
+pElement.appendChild(spanElement);
+
+textDiv.appendChild(h1Element);
+textDiv.appendChild(pElement);
+
+divElement.appendChild(imageDiv);
+divElement.appendChild(textDiv);
+
+restauranteInfo.appendChild(divElement);
+
+}
+function neckDetail(restaurante) {
+var divElement = document.createElement('div');
+divElement.classList.add('d-flex', 'my-3');
+
+var div1 = document.createElement('div');
+div1.classList.add('p-3', 'w-auto', 'me-3', 'fw-semibold');
+div1.style.borderRadius = '15px';
+div1.style.backgroundColor = '#efefef';
+div1.style.border = '1px solid #ddd';
+div1.textContent = 'Entrega';
+
+var div2 = document.createElement('div');
+div2.classList.add('p-3', 'w-100', 'me-3');
+div2.style.borderRadius = '15px';
+div2.style.backgroundColor = '#efefef';
+div2.style.border = '1px solid #ddd';
+div2.innerHTML = '<b>Hoje,</b> 34-45 min R$ 4,99';
+
+var div3 = document.createElement('div');
+var numeroAleatorio = Math.floor(Math.random() * (500 - 10 + 1)) + 10;
+div3.classList.add('p-3', 'w-100', 'me-3');
+div3.style.borderRadius = '15px';
+div3.style.backgroundColor = '#efefef';
+div3.style.border = '1px solid #ddd';
+div3.innerHTML = '<span class="mdi mdi-star">4,8 ('+ numeroAleatorio + ')</span>';
+
+var div4 = document.createElement('div');
+div4.classList.add('p-3', 'w-100', 'fw-semibold');
+div4.style.borderRadius = '15px';
+div4.style.backgroundColor = '#efefef';
+div4.style.border = '1px solid #ddd';
+div4.textContent = 'Muito elogiado';
+
+divElement.appendChild(div1);
+divElement.appendChild(div2);
+divElement.appendChild(div3);
+divElement.appendChild(div4);
+
+restauranteInfo.appendChild(divElement);
+}
+function bodyDetail(produto) {
+  const lista = document.getElementById("lista-produtos");
+  var li = document.createElement("li");
+  li.style.borderBottom = ".25px solid #efefef";
+  li.style.padding = "1rem 0";
+
+  var divPrincipal = document.createElement("div");
+  divPrincipal.classList.add("d-flex", "justify-content-between", "align-items-center");
+
+  var divEsquerda = document.createElement("div");
+  var divDescricao = document.createElement("div");
+  divDescricao.classList.add("w-auto");
+  var pNome = document.createElement("p");
+  pNome.textContent = produto.nome;
+  var pDescricao = document.createElement("p");
+  pDescricao.textContent = produto.descricao;
+  pDescricao.classList.add("text-secondary");
+  var spanPreco = document.createElement("span");
+  spanPreco.textContent = produto.valorMonetario;
+
+  divDescricao.appendChild(pNome);
+  divDescricao.appendChild(pDescricao);
+  divDescricao.appendChild(spanPreco);
+  divEsquerda.appendChild(divDescricao);
+
+  var divDireita = document.createElement("div");
+  divDireita.classList.add("ms-5");
+  divDireita.style.width = "100px";
+  var spanIcone = document.createElement("span");
+  spanIcone.classList.add("mdi", "mdi-food", "fs-1");
+
+  divDireita.appendChild(spanIcone);
+
+  divPrincipal.appendChild(divEsquerda);
+  divPrincipal.appendChild(divDireita);
+
+  li.appendChild(divPrincipal);
+  lista.appendChild(li);
+ }
+async function fillDetail(data) {
+    await headerDetail(data.restaurante);
+    await neckDetail(data.restaurante);
+    data.produtos.forEach(item => bodyDetail(item));
+}
+
+function enviarDenuncia()
+{
+    var header = document.querySelector(".modal-header");
+    var body = document.querySelector(".modal-body");
+    var footer = document.querySelector(".modal-footer");
+}
+
 </script>
 
 </html>
