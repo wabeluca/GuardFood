@@ -58,42 +58,23 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/@brazilian-utils/brazilian-utils/dist/brazilian-utils.cjs.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 <script>
-    // Dados da lista
-const dados = [
-  {
-    titulo: "Denúncia 371",
-    autor: "Jaqueline da Silva",
-  },
-  {
-    titulo: "Denúncia 375",
-    autor: "Isabella Mendes",
-  },
-  {
-    titulo: "Denúncia 376",
-    autor: "Camila Lima",
-  },
-  {
-    titulo: "Denúncia 377",
-    autor: "Larissa Silva",
-  },
-  {
-    titulo: "Denúncia 378",
-    autor: "Beatriz Santos",
-  },
-  {
-    titulo: "Denúncia 379",
-    autor: "Carolina Fernandes",
-  },
-  {
-    titulo: "Denúncia 380",
-    autor: "Patrícia Lima",
-  },
-];
+const minhaLista = document.getElementById("minhaLista");
+
+axios.get("https://localhost:7016/pedido/todos")
+        .then(response => {
+            response.data.forEach((item) => {
+                adicionarItem(minhaLista, item);
+            });
+        })
+        .catch(error => {
+            console.error("Erro ao enviar os dados para a API:", error);
+        });
 
 // Função para criar e adicionar um item à lista
 function adicionarItem(lista, item) {
@@ -107,38 +88,15 @@ function adicionarItem(lista, item) {
   const divEsquerda = document.createElement("div");
   divEsquerda.classList.add("w-50");
 
-  const h4 = document.createElement("h4");
-  h4.textContent = item.titulo;
+  const p = document.createElement("p");
+  p.textContent = item.descricao;
 
-  const descricao = document.createElement("small");
-  const spanAutor = document.createElement("span");
-  spanAutor.classList.add("mdi", "mdi-account", "me-2");
-  descricao.appendChild(spanAutor);
-  descricao.textContent += item.autor;
-
-  divEsquerda.appendChild(h4);
-  divEsquerda.appendChild(descricao);
-
-  const divDireita = document.createElement("div");
-
-  const spanEditar = document.createElement("span");
-  spanEditar.classList.add("mdi", "mdi-magnify-plus", "fs-3", "text-danger");
-  spanEditar.style.cursor = "pointer";
-
-  divDireita.appendChild(spanEditar);
+  divEsquerda.appendChild(p);
 
   div.appendChild(divEsquerda);
-  div.appendChild(divDireita);
 
   li.appendChild(div);
   lista.appendChild(li);
 }
-
-// Adicionar itens à lista
-const minhaLista = document.getElementById("minhaLista");
-
-dados.forEach((item) => {
-  adicionarItem(minhaLista, item);
-});
 
 </script>

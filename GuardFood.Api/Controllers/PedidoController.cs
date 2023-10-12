@@ -6,17 +6,20 @@ using Newtonsoft.Json;
 namespace GuardFood.Api.Controllers
 {
     [Route("pedido")]
-    public class PedidoController : Controller
+    public class PedidoController : MainController
     {
-        public PedidoController()
+        private readonly IPedidoRepository _pedidoRepository;
+        public PedidoController(IPedidoRepository pedidoRepository)
         {
+            _pedidoRepository = pedidoRepository;
         }
 
         [HttpGet]
         [Route("todos")]
         public IActionResult BuscarTodos()
         {
-            return Ok();
+            var pedidos = _pedidoRepository.BuscarTodos();
+            return Ok(pedidos);
         }
 
         [HttpGet]
@@ -28,9 +31,25 @@ namespace GuardFood.Api.Controllers
 
         [HttpPost]
         [Route("inserir")]
-        public IActionResult InserirPedido([FromBody] Pedido pedido)
+        public async Task<IActionResult> Inserir()
         {
-            return Ok();
+            try
+            {
+                var descricao = Request.Form["descricao"];
+
+                var denuncia = new Pedido();
+                denuncia.Descricao = descricao;
+                denuncia.Alteracao = DateTime.Now;
+                denuncia.Inclusao = DateTime.Now;
+
+                _pedidoRepository.Inserir(denuncia);
+
+                return Ok("Formulário recebido com sucesso.");
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Erro ao processar o formulário.");
+            }
         }
 
         [HttpPut]

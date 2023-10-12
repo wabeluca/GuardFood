@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IRestauranteRepository, RestauranteRepository>();
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 
 builder.Services.AddDbContext<GFContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDBConnection")));
 builder.Services.AddControllers();

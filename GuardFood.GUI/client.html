@@ -105,7 +105,7 @@
                             <p><span class="mdi mdi-clock-fast me-1"></span>tempo de espera estimado é de <b>34-45 min</b></p>
                         </div>
                         <label class="form-label" for="denuncia">Observações do pedido</label>
-                        <textarea placeholder="Relate oque está acontecendo sua privacidade será respeitada!" class="form-control" name="denuncia" style="height: 200px;"></textarea>
+                        <textarea id="descricao" placeholder="Relate oque está acontecendo sua privacidade será respeitada!" class="form-control" name="denuncia" style="height: 200px;"></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -318,9 +318,22 @@ async function fillDetail(data) {
 
 function enviarDenuncia()
 {
-    var header = document.querySelector(".modal-header");
-    var body = document.querySelector(".modal-body");
-    var footer = document.querySelector(".modal-footer");
+    const descricao = document.getElementById("descricao").value;
+    const formData = new FormData();
+    formData.append("descricao", descricao);
+
+    axios.post("https://localhost:7016/pedido/inserir", formData)
+        .then(response => {
+            document.querySelector(".modal-header").style.display = "none";
+            document.querySelector(".modal-body").style.display = "none";
+            document.querySelector(".modal-footer").style.display = "none";
+            document.querySelector(".modal-success").style.display = "";
+            console.log(response.data);
+        })
+        .catch(error => {
+            alert("Ocorreu algum erro com a API");
+            console.error("Erro ao enviar os dados para a API:", error);
+        });
 }
 
 </script>
