@@ -1,27 +1,79 @@
-﻿using GuardFood.Infrastructure.Data.Interfaces;
+﻿using GuardFood.Infrastructure.Context;
+using GuardFood.Infrastructure.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace GuardFood.Infrastructure.Data.Repository
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
-        public bool BuscarPorId(Guid id)
+        private readonly GFContext _context;
+
+        public Repository(GFContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public T BuscarPorId(Guid id)
+        {
+            try
+            {
+                return _context.Set<T>().Find(id);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
-        public bool Deltar(Guid id)
+        public bool Deletar(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entidade = _context.Set<T>().Find(id);
+                if (entidade != null)
+                {
+                    _context.Set<T>().Remove(entidade);
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         public bool Editar(T classe)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Entry(classe).State = EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public bool Inserir(T classe)
+        public IEnumerable<T> BuscarTodos()
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().ToList();
+        }
+
+        public bool Inserir(T entidade)
+        {
+            try
+            {
+                _context.Set<T>().Add(entidade);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

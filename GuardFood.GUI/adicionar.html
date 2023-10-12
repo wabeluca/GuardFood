@@ -47,15 +47,36 @@
             </div>
         </div>
         <div class="col-10 p-3">
-            <div class="bg-white h-100 p-3 d-flex flex-column">
-                <div class="d-flex justify-content-between">
-                    <span class="text-danger px-2 w-auto fs-2 fw-bold">Restaurantes</span>
-                    <a href="adicionar.html" class="text-decoration-none"><span class="text-bg-danger m-0 p-3 d-flex justify-content-center align-items-center" style="cursor: pointer;"><span class="mdi mdi-plus me-1"></span>ADICIONAR</span></a>
-                </div>
-                <div class="mt-5">
-                    <ul id="minhaLista" class="list-unstyled">
-                    </ul>
-                </div>
+            <div class="bg-white p-3 h-100">
+                <h1 class="text-danger">Adicionar novo restaurante</h1>
+                <form id="myForm" enctype="multipart/form-data" method="post" class="mt-5">
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="nome" class="form-label">Nome:</label>
+                            <input type="text" id="nome" name="nome" class="form-control form-text" required>
+                        </div>
+                        <div class="col-2 d-flex">
+                            <div class="w-50">
+                                <label for="corPrimaria" class="form-label">Cor primária:</label>
+                                <input type="color" id="corPrimaria" name="corPrimaria" class="form-control form-control-color" required>
+                            </div>
+                            <div class="w-50">
+                                <label for="corSecundaria" class="form-label">Cor secundária:</label>
+                                <input type="color" id="corSecundaria" name="corSecundaria" class="form-control form-control-color" required>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <label for="descricao" class="form-label">Descrição:</label>
+                    <textarea type="text" id="descricao" name="descricao" class="form-control form-text" style="min-height: 200px;" required></textarea>
+            
+
+                    <label for="anexo" class="form-label">Anexo:</label>
+                    <input type="file" class="form-control" id="anexo" name="anexo">
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary py-3 px-5 mt-5 fw-bold">CADASTRAR</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -66,79 +87,33 @@
 </body>
 
 <script>
-const minhaLista = document.getElementById("minhaLista");
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+        debugger
+        event.preventDefault();
 
-    axios.get("https://localhost:7016/restaurante/todos")
+        // Obtenha os dados do formulário
+        const nome = document.getElementById("nome").value;
+        const descricao = document.getElementById("descricao").value;
+        const corPrimaria = document.getElementById("corPrimaria").value;
+        const corSecundaria = document.getElementById("corSecundaria").value;
+        const anexo = document.getElementById("anexo").files[0];
+
+        // Crie um objeto FormData para enviar os dados e o anexo
+        const formData = new FormData();
+        formData.append("nome", nome);
+        formData.append("descricao", descricao);
+        formData.append("corPrimaria", corPrimaria);
+        formData.append("corSecundaria", corSecundaria);
+        formData.append("anexo", anexo);
+
+        // Envie os dados e o anexo para a API usando o Axios
+        axios.post("https://localhost:7016/restaurante/inserir", formData)
         .then(response => {
+            // Faça algo com a resposta da API, se necessário
             console.log(response.data);
-            response.data.forEach((item) => {
-                adicionarItem(minhaLista, item);
-            });
         })
         .catch(error => {
             console.error("Erro ao enviar os dados para a API:", error);
         });
-
-// Função para criar e adicionar um item à lista
-function adicionarItem(lista, item) {
-  const li = document.createElement("li");
-  li.dataset.id = item.id;
-  li.classList.add("p-3");
-  li.style.borderBottom = "2px solid #dc3545";
-
-  const div = document.createElement("div");
-  div.classList.add("d-flex", "justify-content-between", "align-items-center");
-
-  const divEsquerda = document.createElement("div");
-  divEsquerda.classList.add("w-50", "d-flex", "align-items-center");
-
-  const divTexto = document.createElement("div");
-  divTexto.style.marginLeft = "15px";
-
-  const img = document.createElement("img");
-  img.src = item.logo;
-  img.style.maxWidth = "75px";
-
-  const h4 = document.createElement("h4");
-  h4.textContent = item.nome;
-
-  const descricao = document.createElement("small");
-  descricao.textContent = item.descricao;
-
-  divTexto.appendChild(h4);
-  divTexto.appendChild(descricao);
-  divEsquerda.appendChild(img);
-  divEsquerda.appendChild(divTexto);
-
-  const divDireita = document.createElement("div");
-
-  const spanEditar = document.createElement("span");
-  spanEditar.classList.add("mdi", "mdi-pencil", "fs-3", "text-danger");
-  spanEditar.style.cursor = "pointer";
-
-  const spanExcluir = document.createElement("span");
-  spanExcluir.classList.add("mdi", "mdi-trash-can", "fs-3", "text-danger");
-  spanExcluir.style.cursor = "pointer";
-  spanExcluir.onclick = () => { excluir(item.id) };
-
-  divDireita.appendChild(spanEditar);
-  divDireita.appendChild(spanExcluir);
-
-  div.appendChild(divEsquerda);
-  div.appendChild(divDireita);
-
-  li.appendChild(div);
-  lista.appendChild(li);
-}
-
-function excluir(id) {
-    axios.get("https://localhost:7016/restaurante/deletar/" + id)
-        .then(response => {
-            window.location.reload();
-        })
-        .catch(error => {
-            console.error("Erro ao enviar os dados para a API:", error);
-        });
-}
-
+    });
 </script>

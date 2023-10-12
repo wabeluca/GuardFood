@@ -5,31 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GuardFood.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace GuardFood.Infrastructure.Data.Repository
 {
-    public class RestauranteRepository : IRestauranteRepository
+    public class RestauranteRepository : Repository<Restaurante>, IRestauranteRepository
     {
-        public RestauranteRepository() { }
-
-        public bool BuscarPorId(Guid id)
+        public RestauranteRepository(GFContext context) : base(context)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Deltar(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Editar(Restaurante classe)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Inserir(Restaurante classe)
-        {
-            throw new NotImplementedException();
+            
         }
     }
 }

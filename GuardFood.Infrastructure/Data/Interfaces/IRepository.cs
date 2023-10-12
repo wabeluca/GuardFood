@@ -8,9 +8,11 @@ namespace GuardFood.Infrastructure.Data.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        public bool Inserir(T classe);
-        public bool Editar(T classe);
-        public bool BuscarPorId(Guid id);
-        public bool Deltar(Guid id);
+        IEnumerable<T> BuscarTodos();
+        bool Inserir(T classe);
+        bool Editar(T classe);
+        T BuscarPorId(Guid id);
+        bool Deletar(Guid id);
     }
+
 }
