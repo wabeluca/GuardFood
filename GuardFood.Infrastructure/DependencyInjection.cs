@@ -1,4 +1,6 @@
 ﻿using GuardFood.Infrastructure.Context;
+using GuardFood.Infrastructure.Data.Interfaces;
+using GuardFood.Infrastructure.Data.Repository;
 using GuardFood.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +22,8 @@ namespace GuardFood.Infrastructure
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<GFContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddScoped<IRestauranteRepository, RestauranteRepository>();
 
             services.ConfigureApplicationCookie(options =>
                      options.AccessDeniedPath = "/Account/Login");

@@ -1,0 +1,9 @@
+body {
+    height: 100vh;
+    background-color: #ccc !important;
+    overflow-x: hidden;
+}
+
+p {
+    margin: 0 !important;
+}
