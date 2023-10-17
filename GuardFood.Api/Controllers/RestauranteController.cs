@@ -10,9 +10,11 @@ namespace GuardFood.Api.Controllers
     public class RestauranteController : MainController
     {
         private readonly IRestauranteRepository _restauranteRepository;
-        public RestauranteController(IRestauranteRepository restauranteRepository)
+        private readonly IProdutoRepository _produtoRepository;
+        public RestauranteController(IRestauranteRepository restauranteRepository, IProdutoRepository produtoRepository)
         {
             _restauranteRepository = restauranteRepository;
+            _produtoRepository = produtoRepository;
         }
 
         [HttpGet]
@@ -27,20 +29,7 @@ namespace GuardFood.Api.Controllers
         [Route("detalhe/{id}")]
         public IActionResult BuscarPorId(Guid id)
         {
-            var pratos = new List<Produto>();
-            for (int i = 0; i < 20; i++)
-            {
-                var item = new Produto();
-                item.Id = Guid.NewGuid();
-                item.Nome = $@"Produto {i}";
-                item.Descricao = $@"Descrição sobre o produto {i}";
-                item.Inclusao = DateTime.Now;
-                item.Alteracao = DateTime.Now;
-                item.Valor = 2.25 * i;
-                
-                pratos.Add(item);
-            }
-            
+            var pratos = _produtoRepository.BuscarTodos().ToList();
             var restaurante = _restauranteRepository.BuscarPorId(id);
             var model = new RestauranteProdutoViewModel();
 
