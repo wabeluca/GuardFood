@@ -3,7 +3,7 @@ using GuardFood.Infrastructure.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GuardFood.Api.Controllers;
-
+[Route("produto")]
 public class ProdutoController : MainController
 {
     private readonly IProdutoRepository _produtoRepository;
