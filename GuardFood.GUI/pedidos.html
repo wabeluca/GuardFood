@@ -89,10 +89,18 @@ function adicionarItem(lista, item) {
   const divEsquerda = document.createElement("div");
   divEsquerda.classList.add("w-50");
 
+ const titulo = document.createElement("h6");
+ titulo.textContent = item.usuario;
+
   const p = document.createElement("p");
   p.textContent = item.descricao;
 
+  const small = document.createElement("small");
+  small.textContent = item.localizacao;
+
+  divEsquerda.appendChild(titulo);
   divEsquerda.appendChild(p);
+  divEsquerda.appendChild(small);
 
   div.appendChild(divEsquerda);
 

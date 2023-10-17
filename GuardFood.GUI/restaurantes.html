@@ -135,7 +135,7 @@ function adicionarItem(lista, item) {
 function excluir(id) {
     axios.get("https://localhost:7016/restaurante/deletar/" + id)
         .then(response => {
-            window.location.reload();
+            window.open("http://127.0.0.1:5500/GuardFood.GUI/restaurantes.html");
         })
         .catch(error => {
             console.error("Erro ao enviar os dados para a API:", error);

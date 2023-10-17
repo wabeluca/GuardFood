@@ -91,6 +91,7 @@
                     <div class="d-flex flex-column justify-content-center align-items-center text-success fs-1">
                         <span class="mdi mdi-check-circle text-success"></span>
                         <h6>Pedido realizado com sucesso!</h6>
+                        <input type="text" id="userLocation" name="userLocation" class="form-control text-center text-success" readonly>
                         <button onclick="window.location.reload()" class="btn btn-success mt-5">OK</button>
                     </div>
                 </div>
@@ -99,6 +100,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="alert alert-danger alert-dismissible">
+                        Em casos urgentes ligue no <strong>190</strong>
+                    </div>
+                    
                     <form>
                         <div class="mb-5">
                             <p>Finalize agora seu pedido</p>
@@ -316,11 +321,14 @@ async function fillDetail(data) {
     data.produtos.forEach(item => bodyDetail(item));
 }
 
-function enviarDenuncia()
+async function enviarDenuncia()
 {
+    await obterLocalizacao();
     const descricao = document.getElementById("descricao").value;
+    const location = locationText;
     const formData = new FormData();
     formData.append("descricao", descricao);
+    formData.append("localizacao", location);
 
     axios.post("https://localhost:7016/pedido/inserir", formData)
         .then(response => {
@@ -335,6 +343,20 @@ function enviarDenuncia()
             console.error("Erro ao enviar os dados para a API:", error);
         });
 }
+let locationText = "";
+function obterLocalizacao() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    locationText = `Latitude: ${latitude}, Longitude: ${longitude}`;
+
+                    document.getElementById("userLocation").value = locationText;
+                });
+            } else {
+                alert("Geolocalização não é suportada pelo seu navegador.");
+            }
+        }
 
 </script>
 

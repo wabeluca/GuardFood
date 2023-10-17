@@ -38,6 +38,10 @@ namespace GuardFood.Infrastructure.Migrations
                     b.Property<DateTime>("Inclusao")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Localizacao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Pedidos");
