@@ -29,12 +29,14 @@ namespace GuardFood.Api.Controllers
         [Route("detalhe/{id}")]
         public IActionResult BuscarPorId(Guid id)
         {
-            var pratos = _produtoRepository.BuscarTodos().ToList();
+            var produtos = _produtoRepository.BuscarTodos().ToList();
+            var pratos = _produtoRepository.BuscarProdutosPorRestaurante(id).ToList();
             var restaurante = _restauranteRepository.BuscarPorId(id);
             var model = new RestauranteProdutoViewModel();
 
             model.Restaurante = restaurante;
             model.Produtos = pratos;
+            model.ProdutosNaoVinculados = produtos;
             
             return Ok(model);
         }
@@ -82,11 +84,37 @@ namespace GuardFood.Api.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("atualizar")]
-        public IActionResult Atualizar(Guid id, string json)
+        public IActionResult Atualizar()
         {
-            return Ok();
+            try
+            {
+                var id = Guid.Parse(Request?.Form["id"]);
+                
+                var restaurante = _restauranteRepository.BuscarPorId(id);
+
+                restaurante.Nome = Request?.Form["nome"];
+                restaurante.Descricao = Request?.Form["descricao"];
+                restaurante.CorPrimaria = Request?.Form["corPrimaria"];
+                restaurante.CorSecundaria = Request?.Form["corSecundaria"];
+                restaurante.Alteracao = DateTime.Now;
+
+                bool sucesso = _restauranteRepository.Editar(restaurante);
+
+                if (sucesso)
+                {
+                    return Ok("Restaurante atualizado com sucesso");
+                }
+                else
+                {
+                    return NotFound("Restaurante não encontrado");
+                }
+            }
+            catch (JsonException)
+            {
+                return BadRequest("JSON inválido");
+            }
         }
 
         [HttpGet]
@@ -99,6 +127,30 @@ namespace GuardFood.Api.Controllers
                 return Ok();
             
             return BadRequest("Nenhum restaurante encontrado!");   
+        }
+        
+        [HttpGet]
+        [Route("desvincular")]
+        public IActionResult Desvincular(Guid restauranteId, Guid produtoId)
+        {
+            var sucesso = _produtoRepository.Desvincular(restauranteId, produtoId);
+            
+            if (sucesso)
+                return Ok();
+            
+            return BadRequest("Nenhum produto vinculado encontrado!");   
+        }
+
+        [HttpGet]
+        [Route("vincular")]
+        public IActionResult Vincular(Guid restauranteId, Guid produtoId)
+        {
+            var sucesso = _produtoRepository.Vincular(restauranteId, produtoId);
+            
+            if (sucesso)
+                return Ok();
+            
+            return BadRequest("Nenhum produto vinculado encontrado!");   
         }
     }
 }

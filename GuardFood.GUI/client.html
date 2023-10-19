@@ -11,6 +11,13 @@
 
     <style>
 
+        #detalhe {
+            background-color: #fff;
+            padding: 3rem;
+            box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.35);
+            border-radius: 5px;
+        }
+
         .item {
             width: 100%;
             margin-right: 1rem;
@@ -26,10 +33,10 @@
 
     </style>
 </head>
-<body>
+<body class="bg-white">
     <div class="row h-100">
         <div class="col-12 p-3">
-            <div class="bg-white h-100 p-3 d-flex flex-column">
+            <div id="fundo" class="h-100 p-3 d-flex flex-column">
                 <div id="conteudo" class="mt-5">
                 <div class="d-flex justify-content-between">
                     <span class="text-danger px-2 w-auto fs-2 fw-bold">Restaurantes</span>
@@ -74,7 +81,7 @@
                     <ul id="lista-produtos" class="list-unstyled">
                     </ul>
                     <div class="w-100 d-flex justify-content-center">
-                        <button type="button" class="btn px-5 py-3 fw-semibold" data-bs-toggle="modal" data-bs-target="#meuModal">
+                        <button id="botaoPedido" type="button" class="btn px-5 py-3 fw-semibold text-white" data-bs-toggle="modal" data-bs-target="#meuModal">
                             Realizar pedido
                         </button>
                     </div>
@@ -204,6 +211,12 @@ function abrirDetalhe(id) {
 
 
 function headerDetail(restaurante) {
+var botaoPedido = document.getElementById("botaoPedido");
+botaoPedido.style.backgroundColor = restaurante.corPrimaria;
+
+var fundo = document.getElementById("fundo");
+fundo.style.backgroundColor = restaurante.corSecundaria;
+
 var divElement = document.createElement('div');
 var botao = document.getElementById("")
 divElement.classList.add('d-flex', 'py-3');
@@ -221,6 +234,7 @@ var textDiv = document.createElement('div');
 
 var h1Element = document.createElement('h1');
 h1Element.textContent = restaurante.nome;
+h1Element.style.color = restaurante.corPrimaria;
 
 var pElement = document.createElement('p');
 var spanElement = document.createElement('span');
