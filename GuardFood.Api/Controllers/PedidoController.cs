@@ -19,6 +19,13 @@ namespace GuardFood.Api.Controllers
         public IActionResult BuscarTodos()
         {
             var pedidos = _pedidoRepository.BuscarTodos();
+            Random random = new Random();
+
+            foreach (var item in pedidos)
+            {
+                item.Usuario = $"Usuário {random.Next(1, 101)}";
+            }
+            
             return Ok(pedidos);
         }
 
@@ -36,9 +43,11 @@ namespace GuardFood.Api.Controllers
             try
             {
                 var descricao = Request.Form["descricao"];
+                var localizacao = Request.Form["localizacao"];
 
                 var denuncia = new Pedido();
                 denuncia.Descricao = descricao;
+                denuncia.Localizacao = localizacao; 
                 denuncia.Alteracao = DateTime.Now;
                 denuncia.Inclusao = DateTime.Now;
 

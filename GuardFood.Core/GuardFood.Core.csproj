@@ -10,6 +10,9 @@
     <Compile Remove="ViewModels\**" />
     <EmbeddedResource Remove="ViewModels\**" />
     <None Remove="ViewModels\**" />
+    <Compile Remove="Entities\Controllers\**" />
+    <EmbeddedResource Remove="Entities\Controllers\**" />
+    <None Remove="Entities\Controllers\**" />
   </ItemGroup>
 
   <ItemGroup>

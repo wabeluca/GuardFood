@@ -11,6 +11,13 @@
 
     <style>
 
+        #detalhe {
+            background-color: #fff;
+            padding: 3rem;
+            box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.35);
+            border-radius: 5px;
+        }
+
         .item {
             width: 100%;
             margin-right: 1rem;
@@ -26,10 +33,10 @@
 
     </style>
 </head>
-<body>
+<body class="bg-white">
     <div class="row h-100">
         <div class="col-12 p-3">
-            <div class="bg-white h-100 p-3 d-flex flex-column">
+            <div id="fundo" class="h-100 p-3 d-flex flex-column">
                 <div id="conteudo" class="mt-5">
                 <div class="d-flex justify-content-between">
                     <span class="text-danger px-2 w-auto fs-2 fw-bold">Restaurantes</span>
@@ -74,7 +81,7 @@
                     <ul id="lista-produtos" class="list-unstyled">
                     </ul>
                     <div class="w-100 d-flex justify-content-center">
-                        <button type="button" class="btn px-5 py-3 fw-semibold" data-bs-toggle="modal" data-bs-target="#meuModal">
+                        <button id="botaoPedido" type="button" class="btn px-5 py-3 fw-semibold text-white" data-bs-toggle="modal" data-bs-target="#meuModal">
                             Realizar pedido
                         </button>
                     </div>
@@ -91,6 +98,7 @@
                     <div class="d-flex flex-column justify-content-center align-items-center text-success fs-1">
                         <span class="mdi mdi-check-circle text-success"></span>
                         <h6>Pedido realizado com sucesso!</h6>
+                        <input type="text" id="userLocation" name="userLocation" class="form-control text-center text-success" readonly>
                         <button onclick="window.location.reload()" class="btn btn-success mt-5">OK</button>
                     </div>
                 </div>
@@ -99,6 +107,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="alert alert-danger alert-dismissible">
+                        Em casos urgentes ligue no <strong>190</strong>
+                    </div>
+                    
                     <form>
                         <div class="mb-5">
                             <p>Finalize agora seu pedido</p>
@@ -199,6 +211,12 @@ function abrirDetalhe(id) {
 
 
 function headerDetail(restaurante) {
+var botaoPedido = document.getElementById("botaoPedido");
+botaoPedido.style.backgroundColor = restaurante.corPrimaria;
+
+var fundo = document.getElementById("fundo");
+fundo.style.backgroundColor = restaurante.corSecundaria;
+
 var divElement = document.createElement('div');
 var botao = document.getElementById("")
 divElement.classList.add('d-flex', 'py-3');
@@ -216,6 +234,7 @@ var textDiv = document.createElement('div');
 
 var h1Element = document.createElement('h1');
 h1Element.textContent = restaurante.nome;
+h1Element.style.color = restaurante.corPrimaria;
 
 var pElement = document.createElement('p');
 var spanElement = document.createElement('span');
@@ -316,11 +335,14 @@ async function fillDetail(data) {
     data.produtos.forEach(item => bodyDetail(item));
 }
 
-function enviarDenuncia()
+async function enviarDenuncia()
 {
+    await obterLocalizacao();
     const descricao = document.getElementById("descricao").value;
+    const location = locationText;
     const formData = new FormData();
     formData.append("descricao", descricao);
+    formData.append("localizacao", location);
 
     axios.post("https://localhost:7016/pedido/inserir", formData)
         .then(response => {
@@ -335,6 +357,20 @@ function enviarDenuncia()
             console.error("Erro ao enviar os dados para a API:", error);
         });
 }
+let locationText = "";
+function obterLocalizacao() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    locationText = `Latitude: ${latitude}, Longitude: ${longitude}`;
+
+                    document.getElementById("userLocation").value = locationText;
+                });
+            } else {
+                alert("Geolocalização não é suportada pelo seu navegador.");
+            }
+        }
 
 </script>
 
