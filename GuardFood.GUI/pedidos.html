@@ -67,7 +67,7 @@
 <script>
 const minhaLista = document.getElementById("minhaLista");
 
-axios.get("https://localhost:7016/pedido/todos")
+axios.get("https://localhost:60531/pedido/todos")
         .then(response => {
             response.data.forEach((item) => {
                 adicionarItem(minhaLista, item);

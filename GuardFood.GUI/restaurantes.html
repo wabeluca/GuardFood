@@ -69,7 +69,7 @@
 <script>
 const minhaLista = document.getElementById("minhaLista");
 
-    axios.get("https://localhost:7016/restaurante/todos")
+    axios.get("https://localhost:60531/restaurante/todos")
         .then(response => {
             console.log(response.data);
             response.data.forEach((item) => {
@@ -134,9 +134,9 @@ function adicionarItem(lista, item) {
 }
 
 function excluir(id) {
-    axios.get("https://localhost:7016/restaurante/deletar/" + id)
+    axios.get("https://localhost:60531/restaurante/deletar/" + id)
         .then(response => {
-            window.open("http://127.0.0.1:5500/GuardFood.GUI/restaurantes.html");
+            window.location.reload()
         })
         .catch(error => {
             console.error("Erro ao enviar os dados para a API:", error);
@@ -144,7 +144,7 @@ function excluir(id) {
 }
 
 function editar(id) {
-    window.open("http://127.0.0.1:5500/GuardFood.GUI/editarRestaurante.html?id=" + id, "_blank");
+    window.open("http://127.0.0.1:5500/GuardFood.GUI/editarRestaurante.html?id=" + id, "_self");
 }
 
 </script>

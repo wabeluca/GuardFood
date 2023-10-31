@@ -108,10 +108,10 @@
         formData.append("anexo", anexo);
 
         // Envie os dados e o anexo para a API usando o Axios
-        axios.post("https://localhost:7016/restaurante/inserir", formData)
+        axios.post("https://localhost:60531/restaurante/inserir", formData)
         .then(response => {
             // Faça algo com a resposta da API, se necessário
-            console.log(response.data);
+            window.open("http://127.0.0.1:5500/GuardFood.GUI/restaurantes.html", "_self");
         })
         .catch(error => {
             console.error("Erro ao enviar os dados para a API:", error);

@@ -129,7 +129,7 @@
     var restauranteId = urlObj.searchParams.get("id");
 
     document.addEventListener('DOMContentLoaded', function () {
-        axios.get("https://localhost:7016/restaurante/detalhe/" + restauranteId)
+        axios.get("https://localhost:60531/restaurante/detalhe/" + restauranteId)
         .then(response => {
             nomeInput.value = response.data.restaurante.nome;
             corPrimariaInput.value = response.data.restaurante.corPrimaria;
@@ -168,7 +168,7 @@
         formData.append("corSecundaria", corSecundaria);
 
         // Envie os dados e o anexo para a API usando o Axios
-        axios.post("https://localhost:7016/restaurante/atualizar", formData)
+        axios.post("https://localhost:60531/restaurante/atualizar", formData)
         .then(response => {
             location.reload();
         })
@@ -216,7 +216,7 @@ function adicionarItem(lista, item) {
 }
 
 function excluir(id) {
-    axios.get("https://localhost:7016/restaurante/desvincular?restauranteId=" + restauranteId + "&produtoId=" + id)
+    axios.get("https://localhost:60531/restaurante/desvincular?restauranteId=" + restauranteId + "&produtoId=" + id)
         .then(response => {
             location.reload();
         })
@@ -235,7 +235,7 @@ function adicionarOpcao(item) {
 
 function vincularProduto() {
     let produtoId = document.getElementById("produtos").value;
-    axios.get("https://localhost:7016/restaurante/vincular?restauranteId=" + restauranteId + "&produtoId=" + produtoId)
+    axios.get("https://localhost:60531/restaurante/vincular?restauranteId=" + restauranteId + "&produtoId=" + produtoId)
         .then(response => {
             location.reload();
         })
