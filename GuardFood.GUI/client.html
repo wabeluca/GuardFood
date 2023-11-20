@@ -254,6 +254,7 @@ restauranteInfo.appendChild(divElement);
 
 }
 function neckDetail(restaurante) {
+obterLocalizacao();
 var divElement = document.createElement('div');
 divElement.classList.add('d-flex', 'my-3');
 
@@ -340,7 +341,6 @@ async function fillDetail(data) {
 
 async function enviarDenuncia()
 {
-    await obterLocalizacao();
     const descricao = document.getElementById("descricao").value;
     const location = locationText;
     const formData = new FormData();
